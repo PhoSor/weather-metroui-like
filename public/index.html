@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" ng-app ng-controller="AppCtrl">
+  <head>
+    <meta charset="utf-8">
+    <title>Weather</title>
+    <link href="libs/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="css/style.css" rel="stylesheet" media="screen">
+    <!-- <script src="script.js"></script> -->
+    <script src="libs/angular/js/angular.min.js"></script>
+    <script src="js/controllers.js"></script>
+  </head>
+  <body>
+    <!-- page content -->
+    <div class="header row-fluid">
+      <div class="container">
+        <h1 class="title span4">Weather</h1>
+        <div ng-controller="SearchCtrl">
+          <form method="GET" ng-submit="search()">
+            <div class="span7">
+              <input class="search" ng-model="query" type="text" />
+            </div>
+            <div class="span1">
+              <input class="search-btn" type="image" src="images/search.png" />
+            </div>
+        </div>
+        </form>
+      </div>
+    </div>
+    <div class="container">
+      <div class="clouds" ng-controller="CloudsCtrl">
+        <span class="cloud" ng-repeat="cloud in clouds" ng-bind="cloud.icon" ng-style="cloud.style"></span>
+      </div>
+      <div class="row cards" ng-controller="CardsCtrl">
+        <div ng-repeat="weather in cards" class="card-nest span4" ng-click="hide(true)">
+          <div class="card" ng-class="weather.classes">
+            <div class="city">
+              {{weather.city.name}}<span class="country" ng-bind="weather.city.country"></span>
+            </div>
+            <div class="temp" ng-bind="weather.temperature"></div>
+            <div class="humidity" ng-bind="weather.humidity"></div>
+            <div class="pressure" ng-bind="weather.pressure"></div>
+            <div class="icon" ng-bind="weather.icon"></div>
+          </div>
+        </div>
+      </div> <!-- /row -->
+    </div> <!-- /cards -->
+  </body>
+</html>

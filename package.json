@@ -1,0 +1,17 @@
+{
+  "name": "weather",
+  "description": "Weather in Win8 UI style.",
+  "version": "0.1.0",
+  "dependencies": {
+    "async": "0.x",
+    "express": "3.x",
+    "ltx": "0.x"
+  },
+  "engines": {
+    "node": "0.8.x",
+    "npm": "1.1.x"
+  },
+  "scripts": {
+    "start": "node app"
+  }
+}
